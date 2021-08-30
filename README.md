@@ -5,11 +5,12 @@ This is a simple script that log activity on your computer. It works by reading 
 
 # Dependencies
 
-python 3.8.6
+* python 3.8.6
 
-Modules
-* squarify (for data viz only)
-* pandas (for data viz only)
+* Modules:
+   * squarify (for data viz only)
+   * pandas (for data viz only)
+
 
 Install with ```pip install squarify pandas``` or with ```python -m pip install squarify pandas```.
 
