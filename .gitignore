@@ -1,3 +1,6 @@
 active.csv
 apps.csv
 idle.csv
+planning.lorien
+workspace.code-workspace
+__pycache__
