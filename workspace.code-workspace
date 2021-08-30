@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\StatSeer"
+		},
+		{
+			"path": "..\\TimeLoggerViewer"
+		}
+	],
+	"settings": {}
+}
