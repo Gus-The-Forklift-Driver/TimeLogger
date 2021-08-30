@@ -3,6 +3,8 @@ from datetime import datetime
 from datetime import timedelta
 
 import atexit
+
+# uncomment to hide terminal
 #import ctypes
 #ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
