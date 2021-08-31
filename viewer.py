@@ -50,7 +50,7 @@ names = []
 for key in data:
     print(f'{key}: {timedeltaToStr(data[key])}')
     names.append(f'{key} | {timedeltaToStr(data[key])}')
-    values.append(data[key].seconds)
+    values.append(data[key].seconds + data[key].days*86400)
 
 print(names)
 print(values)

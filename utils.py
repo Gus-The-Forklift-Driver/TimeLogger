@@ -5,7 +5,7 @@ import wmi
 from ctypes import Structure, windll, c_uint, sizeof, byref
 from datetime import datetime
 
-
+'''
 class color:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -31,7 +31,6 @@ class color:
     END = ''
     BOLD = ''
     UNDERLINE = ''
-'''
 
 
 def get_active_exe_name():
@@ -42,7 +41,7 @@ def get_active_exe_name():
 
     for proc in procs:
         if proc.ProcessId == pid:
-            return proc.Name
+            return proc.Name.replace(".exe", "")
     return "none"
 
 
@@ -65,16 +64,22 @@ def log_start_to_file(start):
     print(f'{color.WARNING}---------------------------{color.END}')
     print(f'{color.OKBLUE}Started logging at {color.OKCYAN}{start}{color.END}')
     with open('active.csv', 'a') as outfile:
-        outfile.write(f'\n{start},')
+        outfile.write(f'\n{start},{start}')
 
 
-def log_end_to_file(start):
+def replace_end_to_file(start):
     end = datetime.now().replace(microsecond=0)
-    duration = end - start
-    print(f'{color.WARNING}---------------------------{color.END}')
-    print(f'{color.OKBLUE}Ended logging {color.OKCYAN}{start}{color.OKBLUE} ended at {color.OKCYAN}{end}{color.OKBLUE}, for {color.OKCYAN}{duration}{color.OKBLUE}{color.END}')
-    with open('active.csv', 'a') as outfile:
-        outfile.write(f'{end}')
+    #duration = end - start
+    # print(f'{color.WARNING}---------------------------{color.END}')
+    # print(f'{color.OKBLUE}Ended logging {color.OKCYAN}{start}{color.#OKBLUE} ended at {color.OKCYAN}{end}{color.OKBLUE}, for {color.#OKCYAN}{duration}{color.OKBLUE}{color.END}')
+
+    with open('active.csv', 'r') as outfile:
+        data = outfile.readlines()
+    # remove last line from file
+    data = data[:-1]
+    data.append(f'{start},{end}')
+    with open('active.csv', 'w') as outfile:
+        outfile.writelines(data)
 
 
 def log_app_activity_to_file(app, start):
