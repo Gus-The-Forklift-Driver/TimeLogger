@@ -1,6 +1,7 @@
 from time import sleep
 import win32gui
 import win32process
+import win32api
 import wmi
 from ctypes import Structure, windll, c_uint, sizeof, byref
 from datetime import datetime
@@ -45,19 +46,8 @@ def get_active_exe_name():
     return "none"
 
 
-class LASTINPUTINFO(Structure):
-    _fields_ = [
-        ('cbSize', c_uint),
-        ('dwTime', c_uint),
-    ]
-
-
 def get_idle_duration():
-    lastInputInfo = LASTINPUTINFO()
-    lastInputInfo.cbSize = sizeof(lastInputInfo)
-    windll.user32.GetLastInputInfo(byref(lastInputInfo))
-    millis = windll.kernel32.GetTickCount() - lastInputInfo.dwTime
-    return millis / 1000.0
+    return (win32api.GetTickCount() - win32api.GetLastInputInfo()) / 1000.0
 
 
 def log_start_to_file(start):

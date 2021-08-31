@@ -2,11 +2,10 @@ from utils import *
 from datetime import datetime
 from datetime import timedelta
 
-import atexit
 
 # uncomment to hide terminal
-import ctypes
-ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
+#import ctypes
+#ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
 
 # initialisation
@@ -33,9 +32,11 @@ while True:
         if isIdle == False:
             isIdle = True
             idleStart = datetime.now().replace(microsecond=0) - timedelta(minutes=2)
+            log_app_activity_to_file(activeWindow, idleStart)
     else:
         if isIdle == True:
             log_idle_to_file(idleStart)
+            log_app_activity_to_file('idle', idleStart)
             isIdle = False
 
     # logging script uptime

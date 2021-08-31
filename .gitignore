@@ -5,3 +5,6 @@ planning.lorien
 workspace.code-workspace
 __pycache__
 temp.py
+active_.csv
+apps_.csv
+idle_.csv
