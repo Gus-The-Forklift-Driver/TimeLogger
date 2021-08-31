@@ -22,7 +22,6 @@ If you dont want the terminal you can uncomment these two lines :
 import ctypes
 ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
 ```
-You should then start the script with ```python windowLogger.py``` instead of the .bat file in Task Scheduler.
 
 # Visualising the data
 
