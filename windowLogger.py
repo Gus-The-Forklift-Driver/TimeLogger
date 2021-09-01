@@ -4,8 +4,8 @@ from datetime import timedelta
 
 
 # uncomment to hide terminal
-#import ctypes
-#ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
+import ctypes
+ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
 
 # initialisation
