@@ -36,8 +36,9 @@ _This only allow to see a sum up of app activity._
  - [ ] code cleanup and commenting
  - [ ] cross-platform
  - [ ] create ui to visualize the data
- - [ ] gess active web browser page
+ - [ ] guess active web browser page
 
 # Known Bugs
 
-* When shutting down the computer the logging end doesnt register propely.
+* ~~When shutting down the computer the logging end doesnt register propely.~~
+* You might need to remove the first empty line on the csv manually
