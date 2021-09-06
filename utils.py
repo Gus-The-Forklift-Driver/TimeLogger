@@ -46,6 +46,10 @@ def get_active_exe_name():
     return "none"
 
 
+def get_active_title():
+    return win32gui.GetWindowText(win32gui.GetForegroundWindow())
+
+
 def get_idle_duration():
     return (win32api.GetTickCount() - win32api.GetLastInputInfo()) / 1000.0
 
